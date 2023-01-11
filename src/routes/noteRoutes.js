@@ -2,6 +2,10 @@ const express = require("express")
 const Note = require('./../Models/Note')
 const router = express.Router();
 
+router.get("/", function(req, res){
+    res.send("home")
+})
+
 router.post("/list/", async function(req, res){
     var notes = await Note.find({userid: req.body.userid})
     res.json(notes) 
